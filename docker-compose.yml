@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+
+  snippetbox:
+    image: snippetbox
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 4000:4000
+    volumes:
+      - ./:/go/src/github.com/SolBaa/snippetbox
+    command: gowatch
+    networks:
+      - default 
+   
