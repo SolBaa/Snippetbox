@@ -1,10 +1,9 @@
-version: '3.7'
+version: "3.7"
 
 services:
-
   snippetbox:
     image: snippetbox
-    build: 
+    build:
       context: .
       dockerfile: Dockerfile
     ports:
@@ -13,5 +12,16 @@ services:
       - ./:/go/src/github.com/SolBaa/snippetbox
     command: gowatch
     networks:
-      - default 
-   
+      - default
+  database:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_USER: web
+      MYSQL_PASSWORD: sol1234
+      MYSQL_DATABASE: snippetbox
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: root
+      MYSQL_RANDOM_ROOT_PASSWORD: root
+    ports:
+      - 3307:3306
