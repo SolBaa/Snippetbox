@@ -5,16 +5,15 @@ import (
 	"text/template"
 	"time"
 
+	"github.com/SolBaa/snippetbox/pkg/forms"
 	"github.com/SolBaa/snippetbox/pkg/models"
 )
 
 // Define a templateData type to act as the holding structure for
 // any dynamic data that we want to pass to our HTML templates.
-// At the moment it only contains one field, but we'll add more
-// to it as the build progresses.
-// Include a Snippets field in the templateData struct.
 type templateData struct {
 	CurrentYear int
+	Form        *forms.Form
 	Snippet     *models.Snippet
 	Snippets    []*models.Snippet
 }
